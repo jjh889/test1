@@ -1,29 +1,51 @@
-Set up deploy using git
-Create SSH Private Key
-# Press Enter to omit key name, passphase creation
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+# Laravel SNS Scraper
 
-# Copy to Private key
-$ cat .ssh/id_rsa.pub
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/thujohn/twitter.svg?style=flat-square)](https://packagist.org/packages/thujohn/twitter)
+[![Total Downloads](https://img.shields.io/packagist/dt/thujohn/twitter.svg?style=flat-square)](https://packagist.org/packages/thujohn/twitter)
 
-# Init Github
-$ ssh -T git@github.com
-# Press Enter to omit key name, passphase creation
-$ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+Twitter API for Laravel 8
 
-# Copy to Private key
-$ cat .ssh/{id}_rsa.pub
+Twitter 개발자 계정 필요 (access token)
 
-# Configuration to ssh connection
-$ vi ~/.ssh/config
-Host github.com-{id}
-  Hostname github.com
-  User git
-  IdentityFile ~/.ssh/{id}_rsa
+## Installation
 
-# Init Github
-$ ssh -T git@github.com-{id}
+```
+composer require thujohn/twitter
+```
 
-# check confirm messages
-# Hi {your-github-name}! You've successfully authenticated, but Github does not provide shell access
-Add SSH key to Github Link
+## Configuration 
+
+  `.env` File에 아래 항목 적용. 
+
+```
+TWITTER_CONSUMER_KEY=
+TWITTER_CONSUMER_SECRET=
+TWITTER_ACCESS_TOKEN=
+TWITTER_ACCESS_TOKEN_SECRET=
+```
+
+### Twitter ServiceProvider 등록
+
+Run `php artisan vendor:publish --provider="Thujohn\Twitter\TwitterServiceProvider"`
+```
+/config/ttwitter.php
+```
+
+# Instagram 
+별도의 설치 없음 
+GuzzleHttp\Client 사용
+twitter:tagScraper {hashtag}
+
+## Examples & Usage
+
+return Json or Redis Set
+
+```php
+instagram:tagScraper {hashtag}
+```
+
+```php
+instagram:tagScraper {hashtag}
+```
+
+
